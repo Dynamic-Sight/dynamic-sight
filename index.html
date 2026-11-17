@@ -255,7 +255,7 @@ function texts(){
   document.getElementById("cap2").textContent=Math.round(V.capture_naive*100)+"%";
   document.getElementById("b1").style.width=(V.capture_ours*100)+"%";
   document.getElementById("b2").style.width=(V.capture_naive*100)+"%";
-  document.getElementById("vnote").textContent=T.vnote(V.days,V.period.replace(" .. "," to "));
+  document.getElementById("vnote").textContent=T.vnote(V.days,V.period.replace(" .. ",L==="de"?" bis ":" to "));
   document.getElementById("foot").textContent=T.foot(D.meta.built.replace("T"," ").slice(0,16));
   chips(); drawDay(); drawRecord(); table();
 }
@@ -275,7 +275,7 @@ function drawDay(){
     legend:{top:0,left:0,itemGap:20,icon:"roundRect",itemWidth:14,itemHeight:4,textStyle:{color:css("--ink2"),fontFamily:"Inter"},
       data:[T.actual,T.fc,T.b50,T.b95]},
     tooltip:{trigger:"axis",backgroundColor:css("--card"),borderColor:css("--line"),textStyle:{color:css("--ink"),fontFamily:"Inter"},
-      formatter:p=>{const i=p[0].dataIndex; return `<b>${d.t[i]}</b><br>${T.actual}: <b>${d.actual[i]}</b> €/MWh<br>${T.fc}: <b>${d.point[i]}</b> €/MWh<br><span style="color:${css("--muted")}">${T.b95}: ${d.q025[i]} to ${d.q975[i]}</span>`;}},
+      formatter:p=>{const i=p[0].dataIndex; return `<b>${d.t[i]}</b><br>${T.actual}: <b>${d.actual[i]}</b> €/MWh<br>${T.fc}: <b>${d.point[i]}</b> €/MWh<br><span style="color:${css("--muted")}">${T.b95}: ${d.q025[i]} ${L==="de"?"bis":"to"} ${d.q975[i]}</span>`;}},
     xAxis:{type:"category",data:d.t,boundaryGap:false,...A,splitLine:{show:false},axisTick:{show:false},axisLabel:{...A.axisLabel,interval:15}},
     yAxis:{type:"value",...A},
     series:[
