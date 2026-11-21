@@ -1,6 +1,6 @@
 # Dynamic-Sight · electricity forecasts (free beta)
 
-Live page: https://ouabo.github.io/dynamic-sight/
+Live page: https://dynamic-sight.github.io/dynamic-sight/
 
 Forecasts for Germany-Luxembourg, submitted to the independent [Energy Arena](https://energy-arena.org) platform
 (participant **Dynamic-Sight**):
